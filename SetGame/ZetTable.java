@@ -185,21 +185,21 @@ public class ZetTable
   public void compactOpenCards()
   {
     // Partitioning algorithm (proceed from both ends):
-	  int left = 0;
-	  int right = 21;
-	  while ( left < dfltOpenCards && right >= dfltOpenCards)
-	  {
-		  if (openCards[left] != null)
-			  left++;
-		  if (openCards[right] == null)
-			  right--;
-		  if (openCards[left] == null && openCards[right] != null)
-		  {
-			  openCards[left] = openCards[right];
-			  left ++;
-			  right --;
-		  }
-	  }
+    int left = 0;
+    int right = 21;
+    while ( left < dfltOpenCards && right >= dfltOpenCards)
+    {
+      if (openCards[left] != null)
+        left++;
+      if (openCards[right] == null)
+        right--;
+      if (openCards[left] == null && openCards[right] != null)
+      {
+        openCards[left] = openCards[right];
+        left ++;
+        right --;
+      }
+    }
   }
 
   /**
@@ -210,10 +210,11 @@ public class ZetTable
    */
   public String toString()
   {
-	  for (Card i: openCards)
-	  {
-		  Card.toString();
-	  }
-	  System.out.print("\n" + deck.getNumCards());
+    for (Card i: openCards)
+    {
+      Card newCard = new Card(1);
+      newCard.toString();
+    }
+    System.out.print("\n" + deck.getNumCards());
   }
 }
