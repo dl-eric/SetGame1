@@ -35,5 +35,6 @@ public class ZetAnalyzer
         }
       }
     }
+    return zet;
   }
 }
