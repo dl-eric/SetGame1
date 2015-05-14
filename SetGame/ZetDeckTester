@@ -1,0 +1,18 @@
+
+public class ZetDeckTester
+{
+  public static void main(String[] args)
+  {
+    ZetCard test1 = new ZetCard(1, 3, 2, 2);
+    System.out.println(test1);
+    ZetDeck test = new ZetDeck();
+    test.add(test1);
+    test.add(new ZetCard(1, 2, 3, 3));
+    test.add(new ZetCard(1, 1, 1, 1));
+    ZetCard first = (ZetCard)test.takeTop();
+    System.out.println(first);
+    System.out.println(test.takeTop());
+    System.out.println(test.takeTop()); 
+  }
+  
+}
