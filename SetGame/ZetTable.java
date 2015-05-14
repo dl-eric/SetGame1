@@ -215,6 +215,6 @@ public class ZetTable
       Card newCard = new Card(1);
       newCard.toString();
     }
-    System.out.print("\n" + deck.getNumCards());
+    return "\n" + deck.getNumCards();
   }
 }
