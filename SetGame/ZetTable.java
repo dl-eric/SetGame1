@@ -187,11 +187,11 @@ public class ZetTable
     // Partitioning algorithm (proceed from both ends):
 	  int left = 0;
 	  int right = 21;
-	  while ( left < 21 && right >= 21)
+	  while ( left < dfltOpenCards && right >= dfltOpenCards)
 	  {
 		  if (openCards[left] != null)
 			  left++;
-		  if (Deck.getright == null)
+		  if (openCards[right] == null)
 			  right--;
 		  if (openCards[left] == null && openCards[right] != null)
 		  {
@@ -210,6 +210,10 @@ public class ZetTable
    */
   public String toString()
   {
-    ...
+	  for (Card i: openCards)
+	  {
+		  Card.toString();
+	  }
+	  System.out.print("\n" + deck.getNumCards());
   }
 }
