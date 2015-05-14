@@ -210,11 +210,11 @@ public class ZetTable
    */
   public String toString()
   {
-    for (Card i: openCards)
+    String result = new String("");
+    for (int i = 0; i < openCards.length; i++)
     {
-      Card newCard = new Card(1);
-      newCard.toString();
+      result += openCards[i].toString();
     }
-    return "\n" + deck.getNumCards();
+    return result + "\n" + deck.getNumCards();
   }
 }
