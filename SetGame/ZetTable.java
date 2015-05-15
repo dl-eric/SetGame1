@@ -75,7 +75,7 @@ public class ZetTable
   {
     if (i >= openCards.length || i < 0)
       return null;
-    return openCards[i];
+    return (ZetCard)openCards[i];
   }
 
   /**
@@ -98,36 +98,36 @@ public class ZetTable
   public int[] findZet()
   {
     int[] end = new int[3];
-    ZetCard base = openCards[0];
-    ZetCard second = openCards[1];
-    ZetCard third = openCards[2];
+    ZetCard base = (ZetCard)openCards[0];
+    ZetCard second = (ZetCard)openCards[1];
+    ZetCard third = (ZetCard)openCards[2];
     int fIndex = 0;
     int sIndex = 1;
     int tIndex = 2;
     for (int i = 1; i < openCards.length; i++)
     {
-      if ((openCards[i].getShape() == base.getShape() || 
-          openCards[i].getFill() == base.getFill() ||
-          openCards[i].getColor() == base.getColor() ||
-          openCards[i].getNumber() == base.getNumber()) ||
-          (openCards[i].getShape() != base.getShape() || 
-          openCards[i].getFill() != base.getFill() ||
-          openCards[i].getColor() != base.getColor() ||
-          openCards[i].getNumber() != base.getNumber()))
+      if ((((ZetCard)openCards[i]).getShape() == base.getShape() || 
+          ((ZetCard)openCards[i]).getFill() == base.getFill() ||
+          ((ZetCard)openCards[i]).getColor() == base.getColor() ||
+          ((ZetCard)openCards[i]).getNumber() == base.getNumber()) ||
+          (((ZetCard)openCards[i]).getShape() != base.getShape() || 
+          ((ZetCard)openCards[i]).getFill() != base.getFill() ||
+          ((ZetCard)openCards[i]).getColor() != base.getColor() ||
+          ((ZetCard)openCards[i]).getNumber() != base.getNumber()))
       {
-        second = openCards[i];
+        second = (ZetCard)openCards[i];
         sIndex = i;
         for (int j = i; i < openCards.length; i++)
-        if ((openCards[i].getShape() == second.getShape() && openCards[i].getShape() == base.getShape() || 
-            openCards[i].getFill() == second.getFill() && openCards[i].getFill() == base.getFill() ||
-            openCards[i].getColor() == second.getColor() && openCards[i].getColor() == base.getColor()||
-            openCards[i].getNumber() == second.getNumber() && openCards[i].getNumber() == base.getNumber()) ||
-            (openCards[i].getShape() != second.getShape() && openCards[i].getShape() != base.getShape() || 
-            openCards[i].getFill() != second.getFill() && openCards[i].getFill() != base.getFill() ||
-            openCards[i].getColor() != second.getColor() && openCards[i].getColor() != base.getColor()||
-            openCards[i].getNumber() != second.getNumber() && openCards[i].getNumber() != base.getNumber()))
+        if ((((ZetCard)openCards[i]).getShape() == second.getShape() && ((ZetCard)openCards[i]).getShape() == base.getShape() || 
+            ((ZetCard)openCards[i]).getFill() == second.getFill() && ((ZetCard)openCards[i]).getFill() == base.getFill() ||
+            ((ZetCard)openCards[i]).getColor() == second.getColor() && ((ZetCard)openCards[i]).getColor() == base.getColor()||
+            ((ZetCard)openCards[i]).getNumber() == second.getNumber() && ((ZetCard)openCards[i]).getNumber() == base.getNumber()) ||
+            (((ZetCard)openCards[i]).getShape() != second.getShape() && ((ZetCard)openCards[i]).getShape() != base.getShape() || 
+            ((ZetCard)openCards[i]).getFill() != second.getFill() && ((ZetCard)openCards[i]).getFill() != base.getFill() ||
+            ((ZetCard)openCards[i]).getColor() != second.getColor() && ((ZetCard)openCards[i]).getColor() != base.getColor()||
+            ((ZetCard)openCards[i]).getNumber() != second.getNumber() && ((ZetCard)openCards[i]).getNumber() != base.getNumber()))
         {
-          third = openCards[j];
+          third = (ZetCard)openCards[j];
           tIndex = j;
           end[0] = fIndex;
           end[1] = sIndex;
@@ -135,7 +135,7 @@ public class ZetTable
           return end;
         }
       }
-      base = openCards[i];
+      base = (ZetCard)openCards[i];
     }
     return null;
   }
@@ -185,21 +185,21 @@ public class ZetTable
   public void compactOpenCards()
   {
     // Partitioning algorithm (proceed from both ends):
-    int left = 0;
-    int right = 21;
-    while ( left < dfltOpenCards && right >= dfltOpenCards)
-    {
-      if (openCards[left] != null)
-        left++;
-      if (openCards[right] == null)
-        right--;
-      if (openCards[left] == null && openCards[right] != null)
-      {
-        openCards[left] = openCards[right];
-        left ++;
-        right --;
-      }
-    }
+	  int left = 0;
+	  int right = 21;
+	  while ( left < dfltOpenCards && right >= dfltOpenCards)
+	  {
+		  if (openCards[left] != null)
+			  left++;
+		  if (openCards[right] == null)
+			  right--;
+		  if (openCards[left] == null && openCards[right] != null)
+		  {
+			  openCards[left] = openCards[right];
+			  left ++;
+			  right --;
+		  }
+	  }
   }
 
   /**
@@ -210,11 +210,11 @@ public class ZetTable
    */
   public String toString()
   {
-    String result = new String("");
-    for (int i = 0; i < openCards.length; i++)
-    {
-      result += openCards[i].toString();
-    }
-    return result + "\n" + deck.getNumCards();
+	  String result = new String("");
+	  for (int i = 0; i < openCards.length; i ++)
+	  {
+		  result += openCards[i].toString();
+	  }
+	  return result + "\n" + deck.getNumCards();
   }
 }
