@@ -4,9 +4,10 @@ public class TestZetTable
 
 	public static void main(String[] args) 
 	{
-		while (!deck.isEmpty)
+		ZetTable table = new ZetTable();
+
+		while (table.open3Cards() == true)
 		{
-			ZetTable table = new ZetTable();
 			table.findZet();
 			while (table.findZet() == null)
 			{
